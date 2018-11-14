@@ -1,7 +1,7 @@
 # account-api
-The application can be executed by executing the AccountAPIApp class in com.moj.accounts folder
+The application can be started by executing the AccountAPIApp class in com.moj.accounts folder
 
-PreRequisite:-
+PreRequisite to start the application:-
 * JRE on machine
 * Maven ,to download the dependencies
 * Application will start on the port:- 8080

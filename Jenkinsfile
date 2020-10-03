@@ -5,7 +5,7 @@ pipeline {
         NEW_VERSION = '1.5.0'
     }
     tools {
-        maven 'Maven', type: 'maven'
+        maven 'Maven'
     }
     parameters {
         choice(name: 'VERSION', choices :['1.1.0','1.2.0','1.3.0'], description: '')

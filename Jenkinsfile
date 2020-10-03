@@ -22,7 +22,19 @@ pipeline {
             echo 'deploying the application ....'
          }         
        }
-
+    }
     
+    post {
+        always {
+            //executed always if the build fails or succeeds
+        }
+        success {
+            //execute this if build is success     
+        }
+       failure {
+            //execute this if build is success     
+        }
+
+        
     }
  }

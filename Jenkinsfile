@@ -11,11 +11,13 @@ pipeline {
     
     stages {
     
-       stage ("build") {        
+       stage ("build") {   
+           
+          
          steps {
-               sh 'cd account-api'             
-               sh 'mvn clean install'             
-               echo 'building the application ....'
+                withMaven(maven:'Maven.3.6'){
+                    sh 'mvn clean compile'
+                }
          }         
        }
        
@@ -27,6 +29,10 @@ pipeline {
           }
          steps {
             echo 'testing the application ....'
+            withMaven(maven:'Maven.3.6'){
+               sh 'mvn test'
+             }         
+ 
          }         
        }
 

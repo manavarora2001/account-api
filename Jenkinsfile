@@ -4,9 +4,7 @@ pipeline {
     environment {
         NEW_VERSION = '1.5.0'
     }
-    tools {
-        maven 'Maven'
-    }
+    def mvn = tool (name: 'maven3', type: 'maven') + '/bin/mvn'
     parameters {
         choice(name: 'VERSION', choices :['1.1.0','1.2.0','1.3.0'], description: '')
         booleanParam(name: 'executeTests', defaultValue: true , description: '')
@@ -19,11 +17,11 @@ pipeline {
               expression {
                   BRANCH_NAME == 'master' || BRANCH_NAME == 'dev'
                   echo "building version ${NEW_VERSION}"
-                  sh 'cd account-api'
-                  sh 'mvn clean install'
               }
           }
          steps {
+               sh 'cd account-api'
+               sh "${mvn} clean package deploy"
              echo 'building the application ....'
          }         
        }

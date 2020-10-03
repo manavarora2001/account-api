@@ -14,7 +14,7 @@ pipeline {
        stage ("build") {
           when {
               expression {
-                  (BRANCH_NAME == 'master' || BRANCH_NAME == 'dev')
+                   (BRANCH_NAME == 'master' || BRANCH_NAME == 'dev') && params.executeTests
                   echo "building version ${NEW_VERSION}"
                   echo "Branch Name ${BRANCH_NAME}"
               }

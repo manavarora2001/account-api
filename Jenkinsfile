@@ -19,8 +19,8 @@ pipeline {
               expression {
                   BRANCH_NAME == 'master' || BRANCH_NAME == 'dev'
                   echo "building version ${NEW_VERSION}"
-                  sh "cd account-api"
-                  sh "mvn clean install"
+                  sh 'cd account-api'
+                  sh 'mvn clean install'
               }
           }
          steps {
